@@ -1,16 +1,20 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def get_last_letter(string_):
+    return string_[len(string_)-1]
+
+def get_first_letter(string_):
+    return string_[0]
+
+def check_match(input_char, stored_char):
+    if input_char == stored_char:
+        return True
+    else:
+        return False
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    print(char2)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
