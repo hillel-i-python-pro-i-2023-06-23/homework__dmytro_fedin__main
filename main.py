@@ -1,5 +1,14 @@
 words = []
+names = []
 char = 'a'
+
+def get_names() -> list:
+
+    global names
+
+    names_ = input('Enter the names of players, pls: ').split(sep=',')
+    [names.append(name) for name in names_]
+
 
 def get_word() -> str:
 
@@ -46,23 +55,28 @@ def main():
 
     global char
 
+    get_names()
+
     print(f'Start with symbol: {char}')
 
     while True:
+        for name in names:
 
-        word = get_word()
+            print(f'Your turn, {name}')
 
-        if is_word(word) and not is_cancelled(word):
-            print(f'good word: {word}')
-            words.append(word)
-            char = word[len(word) - 1]
-            continue
-        elif not is_word(word) and not is_cancelled(word):
-            print(f'bad word: {word}')
-            continue
-        else:
-            print('Game over')
-            exit(0)
+            word = get_word()
+
+            if is_word(word) and not is_cancelled(word):
+                print(f'good word: {word}')
+                words.append(word)
+                char = word[len(word) - 1]
+                continue
+            elif not is_word(word) and not is_cancelled(word):
+                print(f'bad word: {word}')
+                continue
+            else:
+                print('Game over')
+                exit(0)
 
 
 if __name__ == '__main__':
