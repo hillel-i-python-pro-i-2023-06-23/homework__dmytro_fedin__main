@@ -1,4 +1,3 @@
-is_cancelled = False
 words = []
 char = 'a'
 
@@ -39,33 +38,31 @@ def is_word(word) -> bool:
         return False
         pass
 
-def is_cancelled(word):
+def is_cancelled(word) -> bool:
     if word == 'stop':
         return True
 # Main method to run
 def main():
-    while True:
 
-        global  char
+    global char
+
+    print(f'Start with symbol: {char}')
+
+    while True:
 
         word = get_word()
 
-        print(words)
-        print(f'char: {char}')
-
-        if is_word(word):
+        if is_word(word) and not is_cancelled(word):
             print(f'good word: {word}')
             words.append(word)
             char = word[len(word) - 1]
-
-            print(f'char: {char}')
             continue
-        elif not is_word(word):
+        elif not is_word(word) and not is_cancelled(word):
             print(f'bad word: {word}')
             continue
-        elif is_cancelled(word):
-            break
-
+        else:
+            print('Game over')
+            exit(0)
 
 
 if __name__ == '__main__':
